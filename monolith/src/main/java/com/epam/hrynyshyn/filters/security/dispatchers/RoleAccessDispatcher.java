@@ -4,7 +4,7 @@ package com.epam.hrynyshyn.filters.security.dispatchers;
 import com.epam.hrynyshyn.exceptions.ConfigurationFailureException;
 import com.epam.hrynyshyn.filters.security.configuration.ConstraintStorage;
 import com.epam.hrynyshyn.filters.security.configuration.SecurityConstraint;
-import com.epam.hrynyshyn.model.persistense.entity.User;
+import com.epam.hrynyshyn.model.entity.User;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

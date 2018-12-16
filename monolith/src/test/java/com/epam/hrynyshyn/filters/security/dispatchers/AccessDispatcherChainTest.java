@@ -2,7 +2,7 @@ package com.epam.hrynyshyn.filters.security.dispatchers;
 
 import com.epam.hrynyshyn.filters.security.configuration.ConfigurationFileParser;
 import com.epam.hrynyshyn.filters.security.configuration.ConstraintStorage;
-import com.epam.hrynyshyn.model.persistense.entity.User;
+import com.epam.hrynyshyn.model.entity.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

@@ -1,8 +1,8 @@
 package com.epam.hrynyshyn.controllers.order;
 
 
-import com.epam.hrynyshyn.model.persistense.entity.Product;
-import com.epam.hrynyshyn.model.persistense.order.storage.ShoppingCart;
+import com.epam.hrynyshyn.model.entity.Product;
+import com.epam.hrynyshyn.model.ShoppingCart;
 import org.json.JSONObject;
 
 import javax.servlet.ServletException;
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.epam.hrynyshyn.constants.Constants.Order.*;
 import static com.epam.hrynyshyn.constants.Constants.Order.PRODUCT_COUNT;
 import static com.epam.hrynyshyn.constants.Constants.Order.PRODUCT_ID;
 import static com.epam.hrynyshyn.constants.Constants.Order.PRODUCT_SUM;

@@ -1,6 +1,6 @@
 package com.epam.hrynyshyn.listeners;
 
-import com.epam.hrynyshyn.model.persistense.order.storage.ShoppingCart;
+import com.epam.hrynyshyn.model.ShoppingCart;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSession;

@@ -1,7 +1,7 @@
 package com.epam.hrynyshyn.controllers.order;
 
-import com.epam.hrynyshyn.model.persistense.entity.Product;
-import com.epam.hrynyshyn.model.persistense.order.storage.ShoppingCart;
+import com.epam.hrynyshyn.model.entity.Product;
+import com.epam.hrynyshyn.model.ShoppingCart;
 
 import javax.servlet.annotation.WebServlet;
 

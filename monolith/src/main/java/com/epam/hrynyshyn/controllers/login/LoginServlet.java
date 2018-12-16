@@ -1,7 +1,7 @@
 package com.epam.hrynyshyn.controllers.login;
 
 import com.epam.hrynyshyn.exceptions.TransactionFailureException;
-import com.epam.hrynyshyn.model.services.user.DefaultUserService;
+import com.epam.hrynyshyn.services.impl.UserServiceImpl;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletConfig;
@@ -31,7 +31,7 @@ import static com.epam.hrynyshyn.constants.Constants.Validation.ERRORS;
 @WebServlet("/login.do")
 public class LoginServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(LoginServlet.class);
-    private DefaultUserService service;
+    private UserServiceImpl service;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
         } else {
             session.removeAttribute(ERRORS);
-            session.setAttribute(USER, service.getUser(email));
+            session.setAttribute(USER, service.get(email));
             session.setAttribute(USER_NAME, service.getFullName(email));
             session.setAttribute(USER_AVATAR,
                     AVATARS_STORAGE_PATH + email + AVATARS_EXTENSION);
@@ -73,14 +73,14 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        service = (DefaultUserService) config.getServletContext().getAttribute(USER_SERVICE);
+        service = (UserServiceImpl) config.getServletContext().getAttribute(USER_SERVICE);
     }
 
     private Map<String, String> validateInputData(String email, String password) throws TransactionFailureException {
         Map<String, String> errors = new HashMap<>();
-        if (!service.emailReserved(email)) {
+        if (!service.isEmailReserved(email)) {
             errors.put(EMAIL, EMAIL_NOT_EXISTS);
-        } else if (!service.passwordCorrect(email, password)) {
+        } else if (!service.isPasswordCorrect(email, password)) {
             errors.put(PASSWORD, PASSWORD_NOT_CORRECT);
         }
         return errors;

@@ -1,8 +1,8 @@
 package com.epam.hrynyshyn.controllers.products;
 
-import com.epam.hrynyshyn.model.services.category.CategoryService;
-import com.epam.hrynyshyn.model.services.manufacturer.ManufacturerService;
-import com.epam.hrynyshyn.model.services.product.ProductService;
+import com.epam.hrynyshyn.services.CategoryService;
+import com.epam.hrynyshyn.services.ManufacturerService;
+import com.epam.hrynyshyn.services.ProductService;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletConfig;

@@ -1,11 +1,11 @@
 package com.epam.hrynyshyn.controllers.order;
 
-import com.epam.hrynyshyn.model.persistense.entity.Product;
-import com.epam.hrynyshyn.model.persistense.entity.User;
-import com.epam.hrynyshyn.model.persistense.order.Order;
-import com.epam.hrynyshyn.model.persistense.order.product.OrderedProduct;
-import com.epam.hrynyshyn.model.persistense.order.storage.ShoppingCart;
-import com.epam.hrynyshyn.model.services.order.OrderService;
+import com.epam.hrynyshyn.model.entity.Product;
+import com.epam.hrynyshyn.model.entity.User;
+import com.epam.hrynyshyn.model.order.Order;
+import com.epam.hrynyshyn.model.order.OrderedProduct;
+import com.epam.hrynyshyn.model.ShoppingCart;
+import com.epam.hrynyshyn.services.OrderService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.epam.hrynyshyn.constants.Constants.Order.*;
 import static com.epam.hrynyshyn.constants.Constants.Order.ORDER;
 import static com.epam.hrynyshyn.constants.Constants.Order.ORDER_CREATED;
 import static com.epam.hrynyshyn.constants.Constants.Order.ORDER_CREATED_DESCRIPTION;

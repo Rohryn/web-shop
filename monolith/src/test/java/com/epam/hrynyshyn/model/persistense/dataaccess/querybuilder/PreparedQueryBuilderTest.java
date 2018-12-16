@@ -1,6 +1,6 @@
 package com.epam.hrynyshyn.model.persistense.dataaccess.querybuilder;
 
-import com.epam.hrynyshyn.model.persistense.dataaccess.querybuilder.syntax.PreparedQueryBuilder;
+import com.epam.hrynyshyn.repository.querybuilder.syntax.PreparedQueryBuilder;
 import org.junit.Before;
 import org.junit.Test;
 

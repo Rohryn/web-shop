@@ -2,8 +2,8 @@ package com.epam.hrynyshyn.controllers.registration;
 
 import com.epam.hrynyshyn.controllers.captcha.service.providers.CaptchaProvider;
 import com.epam.hrynyshyn.exceptions.TransactionFailureException;
-import com.epam.hrynyshyn.model.persistense.entity.User;
-import com.epam.hrynyshyn.model.services.user.DefaultUserService;
+import com.epam.hrynyshyn.model.entity.User;
+import com.epam.hrynyshyn.services.impl.UserServiceImpl;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletConfig;
@@ -39,7 +39,7 @@ import static com.epam.hrynyshyn.constants.Constants.Validation.REGISTRATION_TIM
 public class RegistrationServlet extends HttpServlet {
 
     private static Logger logger = Logger.getLogger(RegistrationServlet.class);
-    private DefaultUserService service;
+    private UserServiceImpl service;
     private CaptchaProvider provider;
 
     private boolean isRegistrationOutOfTime(long timeOut) {
@@ -47,7 +47,7 @@ public class RegistrationServlet extends HttpServlet {
     }
 
     private boolean isEmailReserved(String email) throws TransactionFailureException {
-        return service.emailReserved(email);
+        return service.isEmailReserved(email);
     }
 
     private boolean isCaptchaCorrect(HttpServletRequest request) {
@@ -94,7 +94,7 @@ public class RegistrationServlet extends HttpServlet {
             } else {
                 User user = new User();
                 formBean.fillUserData(user);
-                service.addUser(user);
+                service.add(user);
                 FileUploader.uploadAvatar(req);
                 resp.sendRedirect("/WEB-INF/index.jsp");
             }
@@ -108,7 +108,7 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         ServletContext context = config.getServletContext();
-        service = (DefaultUserService) context.getAttribute(USER_SERVICE);
+        service = (UserServiceImpl) context.getAttribute(USER_SERVICE);
         provider = (CaptchaProvider) context.getAttribute(CAPTCHA_PROVIDER);
     }
 

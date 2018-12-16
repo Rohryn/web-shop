@@ -2,10 +2,10 @@ package com.epam.hrynyshyn.controllers.registration;
 
 import com.epam.hrynyshyn.controllers.captcha.service.entity.Captcha;
 import com.epam.hrynyshyn.controllers.captcha.service.providers.CaptchaProvider;
-import com.epam.hrynyshyn.model.persistense.dataaccess.TransactionManager;
-import com.epam.hrynyshyn.model.persistense.dataaccess.repositories.user.DefaultUserRepository;
-import com.epam.hrynyshyn.model.services.user.DefaultUserService;
-import com.epam.hrynyshyn.model.services.user.UserService;
+import com.epam.hrynyshyn.repository.TransactionManager;
+import com.epam.hrynyshyn.repository.repositories.impl.UserRepositoryImpl;
+import com.epam.hrynyshyn.services.impl.UserServiceImpl;
+import com.epam.hrynyshyn.services.UserService;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -71,7 +71,7 @@ public class RegistrationServletTest {
 
     private static void setUpUsersService() {
         TransactionManager transactionManager = new TransactionManager(getDataSource());
-        service = new DefaultUserService(new DefaultUserRepository(transactionManager));
+        service = new UserServiceImpl(new UserRepositoryImpl(transactionManager));
     }
 
     private static DataSource getDataSource() {
@@ -128,9 +128,9 @@ public class RegistrationServletTest {
     public void testRegistrationWithCorrectCaptcha() throws Exception {
         when(request.getParameter(CAPTCHA)).thenReturn("123");
         when(request.getParameter(EMAIL)).thenReturn(getUniqueEmail());
-        int usersBefore = service.getUsersCount();
+        int usersBefore = service.getCount();
         servlet.doPost(request, response);
-        assertTrue(service.getUsersCount() - usersBefore == 1);
+        assertTrue(service.getCount() - usersBefore == 1);
     }
 
     @Test
@@ -144,9 +144,9 @@ public class RegistrationServletTest {
     @Test
     public void testRegistrationWithUniqueEmail() throws Exception {
         when(request.getParameter(EMAIL)).thenReturn(getUniqueEmail());
-        int usersBefore = service.getUsersCount();
+        int usersBefore = service.getCount();
         servlet.doPost(request, response);
-        assertTrue(service.getUsersCount() - usersBefore == 1);
+        assertTrue(service.getCount() - usersBefore == 1);
     }
 
     @Test

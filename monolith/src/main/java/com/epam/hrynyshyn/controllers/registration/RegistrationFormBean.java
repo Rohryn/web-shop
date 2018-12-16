@@ -1,6 +1,6 @@
 package com.epam.hrynyshyn.controllers.registration;
 
-import com.epam.hrynyshyn.model.persistense.entity.User;
+import com.epam.hrynyshyn.model.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 
