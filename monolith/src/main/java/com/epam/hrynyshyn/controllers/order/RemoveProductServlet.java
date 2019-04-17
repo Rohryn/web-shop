@@ -15,6 +15,7 @@ import java.io.IOException;
 import static com.epam.hrynyshyn.constants.Constants.Product.PRODUCT_ID;
 import static com.epam.hrynyshyn.constants.Constants.Product.SHOPPING_CART;
 
+@Deprecated
 @WebServlet("/removeProduct.do")
 public class RemoveProductServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(RemoveProductServlet.class);

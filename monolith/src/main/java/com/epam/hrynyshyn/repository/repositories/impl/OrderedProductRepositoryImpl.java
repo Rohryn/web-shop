@@ -6,9 +6,11 @@ import com.epam.hrynyshyn.repository.TransactionManager;
 import com.epam.hrynyshyn.repository.TransactionOperation;
 import com.epam.hrynyshyn.model.order.OrderedProduct;
 import com.epam.hrynyshyn.repository.repositories.OrderedProductRepository;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 
+@Repository
 public class OrderedProductRepositoryImpl implements OrderedProductRepository {
     private TransactionManager manager;
 

@@ -10,6 +10,7 @@ import com.epam.hrynyshyn.repository.TransactionOperation;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.GetUserConstructor;
 import com.epam.hrynyshyn.model.entity.User;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +20,7 @@ import static com.epam.hrynyshyn.constants.Constants.Queries.ADD_USER;
 /**
  * Repository for user. Contains necessary logic for database connectivity.
  */
+@Repository
 public class UserRepositoryImpl implements UserRepository {
     Logger logger = Logger.getLogger(ProductRepositoryImpl.class);
     private TransactionManager manager;

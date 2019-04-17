@@ -2,6 +2,8 @@ package com.epam.hrynyshyn.repository;
 
 import com.epam.hrynyshyn.exceptions.TransactionFailureException;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -10,10 +12,12 @@ import java.sql.SQLException;
 import static com.epam.hrynyshyn.constants.Constants.ErrorMessages.TRANSACTION_FAILURE;
 import static com.epam.hrynyshyn.constants.Constants.ErrorMessages.TRANSACTION_ROLLBACK;
 
+@Component
 public class TransactionManager {
     private static Logger logger = Logger.getLogger(TransactionManager.class);
     private DataSource dataSource;
 
+    @Autowired
     public TransactionManager(DataSource dataSource) {
         this.dataSource = dataSource;
     }

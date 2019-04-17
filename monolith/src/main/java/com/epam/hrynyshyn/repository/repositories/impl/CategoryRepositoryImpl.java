@@ -3,6 +3,7 @@ package com.epam.hrynyshyn.repository.repositories.impl;
 import com.epam.hrynyshyn.repository.TransactionManager;
 import com.epam.hrynyshyn.model.entity.Category;
 import com.epam.hrynyshyn.repository.repositories.CategoryRepository;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import static com.epam.hrynyshyn.constants.Constants.Queries.GET_ALL_CATEGORIES;
 
+@Repository
 public class CategoryRepositoryImpl implements CategoryRepository {
     private TransactionManager manager;
 

@@ -28,6 +28,7 @@ import static com.epam.hrynyshyn.constants.Constants.Product.SHOPPING_CART;
 import static com.epam.hrynyshyn.constants.Constants.Services.ORDER_SERVICE;
 import static com.epam.hrynyshyn.constants.Constants.User.USER;
 
+@Deprecated
 @WebServlet("/order/makeOrder.do")
 public class MakeOrderServlet extends HttpServlet {
     private OrderService service;

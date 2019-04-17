@@ -3,7 +3,9 @@ package com.epam.hrynyshyn.services.impl;
 import com.epam.hrynyshyn.repository.repositories.UserRepository;
 import com.epam.hrynyshyn.model.entity.User;
 import com.epam.hrynyshyn.services.UserService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
     private UserRepository repository;
 

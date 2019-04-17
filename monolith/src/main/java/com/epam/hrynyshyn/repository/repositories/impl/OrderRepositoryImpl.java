@@ -10,6 +10,7 @@ import com.epam.hrynyshyn.model.order.Order;
 import com.epam.hrynyshyn.model.order.OrderedProduct;
 import com.mysql.jdbc.Statement;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class OrderRepositoryImpl implements OrderRepository {
     private static Logger logger = Logger.getLogger(ProductRepositoryImpl.class);
     private TransactionManager manager;

@@ -1,15 +1,15 @@
-package com.epam.hrynyshyn.controllers.products;
+package com.epam.hrynyshyn.controllers;
 
+import com.epam.hrynyshyn.controllers.products.ProductsPageServlet;
 import com.epam.hrynyshyn.services.CategoryService;
 import com.epam.hrynyshyn.services.ManufacturerService;
 import com.epam.hrynyshyn.services.ProductService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -29,39 +29,37 @@ import static com.epam.hrynyshyn.constants.Constants.Product.PRODUCTS_COUNT;
 import static com.epam.hrynyshyn.constants.Constants.Product.PRODUCTS_PER_PAGE;
 import static com.epam.hrynyshyn.constants.Constants.Product.SORT;
 import static com.epam.hrynyshyn.constants.Constants.Product.UNSORTED;
-import static com.epam.hrynyshyn.constants.Constants.Services.CATEGORY_SERVICE;
-import static com.epam.hrynyshyn.constants.Constants.Services.MANUFACTURER_SERVICE;
-import static com.epam.hrynyshyn.constants.Constants.Services.PRODUCT_SERVICE;
 import static com.epam.hrynyshyn.util.RequestParametersValidator.isArrayValid;
 import static com.epam.hrynyshyn.util.RequestParametersValidator.isParameterExists;
 import static com.epam.hrynyshyn.util.RequestParametersValidator.isPositiveNumber;
 
-@Deprecated
-@WebServlet("/products.do")
-public class ProductsPageServlet extends HttpServlet {
+/**
+ * @author by Roman Hrynyshyn
+ * Created on 2019-04-17.
+ */
+// TODO: 2019-04-17 refactor
+@Controller
+public class ProductController {
     private static Logger logger = Logger.getLogger(ProductsPageServlet.class);
     private ProductService productService;
     private ManufacturerService manufacturerService;
     private CategoryService categoryService;
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @Autowired
+    public ProductController(ProductService productService,
+                             ManufacturerService manufacturerService,
+                             CategoryService categoryService) {
+        this.productService = productService;
+        this.manufacturerService = manufacturerService;
+        this.categoryService = categoryService;
+    }
+
+    @GetMapping("/products.do")
+    public void getProductPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         preparePageContent(req);
         prepareProductsListNavigation(req);
         req.getRequestDispatcher("/WEB-INF/products.jsp").forward(req, resp);
-    }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
-    }
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        ServletContext context = config.getServletContext();
-        productService = (ProductService) context.getAttribute(PRODUCT_SERVICE);
-        manufacturerService = (ManufacturerService) context.getAttribute(MANUFACTURER_SERVICE);
-        categoryService = (CategoryService) context.getAttribute(CATEGORY_SERVICE);
     }
 
     private void preparePageContent(HttpServletRequest request) {

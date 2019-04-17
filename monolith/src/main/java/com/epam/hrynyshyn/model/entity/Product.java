@@ -10,6 +10,7 @@ public class Product {
     private Category category;
     private String description;
     private String imageSource;
+    // TODO: 2019-04-17 bigdecimal
     private int price;
 
     public Product(int id, String name, Manufacturer manufacturer, Category category, String description, String imageSource, int price) {

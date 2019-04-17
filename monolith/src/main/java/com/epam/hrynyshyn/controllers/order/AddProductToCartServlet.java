@@ -21,6 +21,7 @@ import static com.epam.hrynyshyn.constants.Constants.Product.PRODUCT_COUNT;
 import static com.epam.hrynyshyn.constants.Constants.Product.SHOPPING_CART;
 import static com.epam.hrynyshyn.constants.Constants.Services.PRODUCT_SERVICE;
 
+@Deprecated
 @WebServlet("/addToCart.do")
 public class AddProductToCartServlet extends HttpServlet {
     private ProductService productService;

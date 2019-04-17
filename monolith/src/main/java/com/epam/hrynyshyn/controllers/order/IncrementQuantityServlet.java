@@ -5,6 +5,7 @@ import com.epam.hrynyshyn.model.ShoppingCart;
 
 import javax.servlet.annotation.WebServlet;
 
+@Deprecated
 @WebServlet("/incrementQuantity.do")
 public class IncrementQuantityServlet extends ChangeCountAbstractServlet {
 

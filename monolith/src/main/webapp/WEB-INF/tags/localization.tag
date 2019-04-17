@@ -1,7 +1,7 @@
 <%@tag isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="functions" uri="/WEB-INF/custom_functions.tld" %>
+<%@ taglib prefix="functions" uri="/WEB-INF/jsp/custom_functions.tld" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <c:set var="url"
        value="${requestScope['javax.servlet.forward.request_uri']}?${pageContext.request.getQueryString()}">

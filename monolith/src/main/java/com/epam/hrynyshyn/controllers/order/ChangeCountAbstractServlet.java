@@ -17,7 +17,7 @@ import static com.epam.hrynyshyn.constants.Constants.Order.PRODUCT_ID;
 import static com.epam.hrynyshyn.constants.Constants.Order.PRODUCT_SUM;
 import static com.epam.hrynyshyn.constants.Constants.Order.TOTAL_SUM;
 import static com.epam.hrynyshyn.constants.Constants.Product.SHOPPING_CART;
-
+@Deprecated
 public abstract class ChangeCountAbstractServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

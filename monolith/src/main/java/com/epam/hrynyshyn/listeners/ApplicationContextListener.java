@@ -53,8 +53,8 @@ import static com.epam.hrynyshyn.constants.Constants.Services.ORDER_SERVICE;
 import static com.epam.hrynyshyn.constants.Constants.Services.PRODUCT_SERVICE;
 import static com.epam.hrynyshyn.constants.Constants.Services.USER_SERVICE;
 
-@WebListener
-public class ApplicationContextListener implements ServletContextListener {
+//@WebListener
+public class ApplicationContextListener /*implements ServletContextListener*/ {
     Logger logger = Logger.getLogger(ApplicationContextListener.class);
 
     private void databaseConnectivityInit(ServletContext context) {
@@ -97,14 +97,14 @@ public class ApplicationContextListener implements ServletContextListener {
         new CaptchaCleaner(context).startService();
     }
 
-    @Override
+//    @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         ServletContext servletContext = servletContextEvent.getServletContext();
         databaseConnectivityInit(servletContext);
         captchaSupportInit(servletContext);
     }
 
-    @Override
+//    @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
     }
 

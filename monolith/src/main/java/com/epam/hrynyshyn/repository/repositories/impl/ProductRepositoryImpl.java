@@ -10,6 +10,7 @@ import com.epam.hrynyshyn.model.entity.Category;
 import com.epam.hrynyshyn.model.entity.Manufacturer;
 import com.epam.hrynyshyn.model.entity.Product;
 import com.epam.hrynyshyn.repository.repositories.ProductRepository;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class ProductRepositoryImpl implements ProductRepository {
     private TransactionManager manager;
 

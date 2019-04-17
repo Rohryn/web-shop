@@ -3,10 +3,12 @@ package com.epam.hrynyshyn.services.impl;
 import com.epam.hrynyshyn.repository.repositories.ProductRepository;
 import com.epam.hrynyshyn.model.entity.Product;
 import com.epam.hrynyshyn.services.ProductService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class ProductServiceImpl implements ProductService {
     private ProductRepository repository;
 
