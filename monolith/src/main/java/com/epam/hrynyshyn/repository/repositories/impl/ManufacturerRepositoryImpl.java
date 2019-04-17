@@ -12,6 +12,7 @@ import java.util.List;
 
 import static com.epam.hrynyshyn.constants.Constants.Queries.GET_ALL_MANUFACTURERS;
 
+@Deprecated
 @Repository
 public class ManufacturerRepositoryImpl implements ManufacturerRepository {
     private TransactionManager manager;

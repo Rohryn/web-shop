@@ -1,9 +1,8 @@
 package com.epam.hrynyshyn.repository.repositories.impl;
 
-import com.epam.hrynyshyn.repository.TransactionManager;
 import com.epam.hrynyshyn.model.entity.Category;
+import com.epam.hrynyshyn.repository.TransactionManager;
 import com.epam.hrynyshyn.repository.repositories.CategoryRepository;
-import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +11,8 @@ import java.util.List;
 
 import static com.epam.hrynyshyn.constants.Constants.Queries.GET_ALL_CATEGORIES;
 
-@Repository
+@Deprecated
+//@Repository
 public class CategoryRepositoryImpl implements CategoryRepository {
     private TransactionManager manager;
 
@@ -21,7 +21,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     }
 
     @Override
-    public List<Category> getAll() {
+    public List<Category> findAll() {
         return manager.executeTransaction(connection -> {
             PreparedStatement statement = connection.prepareStatement(GET_ALL_CATEGORIES);
             ResultSet resultSet = statement.executeQuery();

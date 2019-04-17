@@ -20,6 +20,7 @@ import static com.epam.hrynyshyn.constants.Constants.Queries.ADD_USER;
 /**
  * Repository for user. Contains necessary logic for database connectivity.
  */
+@Deprecated
 @Repository
 public class UserRepositoryImpl implements UserRepository {
     Logger logger = Logger.getLogger(ProductRepositoryImpl.class);
@@ -44,7 +45,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User getUser(String email) throws TransactionFailureException {
-        QueryConstructor constructor=new GetUserConstructor(email);
+        QueryConstructor constructor = new GetUserConstructor(email);
         return manager.executeTransaction(connection -> {
             PreparedStatement statement = connection.prepareStatement(constructor.constructQuery());
             statement.setString(1, email);

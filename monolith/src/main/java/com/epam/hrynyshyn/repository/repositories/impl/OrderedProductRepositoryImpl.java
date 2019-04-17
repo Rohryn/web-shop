@@ -1,24 +1,22 @@
 package com.epam.hrynyshyn.repository.repositories.impl;
 
-import com.epam.hrynyshyn.repository.querybuilder.constructors.AddOrderedProductConstructor;
-import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
+import com.epam.hrynyshyn.model.order.OrderedProduct;
 import com.epam.hrynyshyn.repository.TransactionManager;
 import com.epam.hrynyshyn.repository.TransactionOperation;
-import com.epam.hrynyshyn.model.order.OrderedProduct;
-import com.epam.hrynyshyn.repository.repositories.OrderedProductRepository;
-import org.springframework.stereotype.Repository;
+import com.epam.hrynyshyn.repository.querybuilder.constructors.AddOrderedProductConstructor;
+import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
 
 import java.sql.PreparedStatement;
-
-@Repository
-public class OrderedProductRepositoryImpl implements OrderedProductRepository {
+@Deprecated
+//@Repository
+public class OrderedProductRepositoryImpl /*implements OrderedProductRepository*/ {
     private TransactionManager manager;
 
     public OrderedProductRepositoryImpl(TransactionManager manager) {
         this.manager = manager;
     }
 
-    @Override
+//    @Override
     public void addProduct(OrderedProduct product) {
         QueryConstructor constructor = new AddOrderedProductConstructor(product);
         manager.executeTransaction((TransactionOperation<Void>) connection -> {

@@ -1,24 +1,23 @@
 package com.epam.hrynyshyn.repository.repositories.impl;
 
-import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
-import com.epam.hrynyshyn.repository.repositories.OrderRepository;
+import com.epam.hrynyshyn.model.order.Order;
+import com.epam.hrynyshyn.model.order.OrderedProduct;
 import com.epam.hrynyshyn.repository.TransactionManager;
 import com.epam.hrynyshyn.repository.TransactionOperation;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.AddOrderConstructor;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.AddOrderedProductConstructor;
-import com.epam.hrynyshyn.model.order.Order;
-import com.epam.hrynyshyn.model.order.OrderedProduct;
+import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
+import com.epam.hrynyshyn.repository.repositories.OrderRepository;
 import com.mysql.jdbc.Statement;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-@Repository
+@Deprecated
+//@Repository
 public class OrderRepositoryImpl implements OrderRepository {
     private static Logger logger = Logger.getLogger(ProductRepositoryImpl.class);
     private TransactionManager manager;

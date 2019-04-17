@@ -24,4 +24,14 @@ public class ApplicationPageController {
     public String getOrderCompletePage() {
         return "order-complete";
     }
+
+    @GetMapping("/accessDenied.do")
+    public String getAccessDeniedPage() {
+        return "access_denied";
+    }
+
+    @GetMapping("/login.do")
+    public String getLoginPage() {
+        return "login";
+    }
 }

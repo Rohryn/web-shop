@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -47,11 +46,6 @@ public class AuthController {
     @Autowired
     public AuthController(UserService service) {
         this.service = service;
-    }
-
-    @GetMapping("/login.do")
-    public String getLoginPage() {
-        return "login";
     }
 
     @PostMapping("/login.do")
