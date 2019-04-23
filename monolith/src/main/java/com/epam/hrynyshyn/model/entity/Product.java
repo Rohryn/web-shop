@@ -1,23 +1,25 @@
 package com.epam.hrynyshyn.model.entity;
 
+import java.util.Objects;
+
 /**
  * Created by Roman_Hrynyshyn on 12-Dec-16.
  */
 public class Product {
     private int id;
     private String name;
-    private Manufacturer manufacturer;
-    private Category category;
+    private int manufacturerId;
+    private int categoryId;
     private String description;
     private String imageSource;
     // TODO: 2019-04-17 bigdecimal
     private int price;
 
-    public Product(int id, String name, Manufacturer manufacturer, Category category, String description, String imageSource, int price) {
+    public Product(int id, String name, int manufacturerId, int categoryId, String description, String imageSource, int price) {
         this.id = id;
         this.name = name;
-        this.manufacturer = manufacturer;
-        this.category = category;
+        this.manufacturerId = manufacturerId;
+        this.categoryId = categoryId;
         this.description = description;
         this.imageSource = imageSource;
         this.price = price;
@@ -42,20 +44,20 @@ public class Product {
         this.name = name;
     }
 
-    public Manufacturer getManufacturer() {
-        return manufacturer;
+    public int getManufacturerId() {
+        return manufacturerId;
     }
 
-    public void setManufacturer(Manufacturer manufacturer) {
-        this.manufacturer = manufacturer;
+    public void setManufacturerId(int manufacturerId) {
+        this.manufacturerId = manufacturerId;
     }
 
-    public Category getCategory() {
-        return category;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getDescription() {
@@ -86,21 +88,18 @@ public class Product {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Product product = (Product) o;
-
-        if (!name.equals(product.name)) return false;
-        if (!manufacturer.equals(product.manufacturer)) return false;
-        if (!category.equals(product.category)) return false;
-        return description.equals(product.description);
+        return id == product.id &&
+                price == product.price &&
+                Objects.equals(name, product.name) &&
+                Objects.equals(manufacturerId, product.manufacturerId) &&
+                Objects.equals(categoryId, product.categoryId) &&
+                Objects.equals(description, product.description) &&
+                Objects.equals(imageSource, product.imageSource);
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + manufacturer.hashCode();
-        result = 31 * result + category.hashCode();
-        result = 31 * result + description.hashCode();
-        return result;
+        return Objects.hash(id, name, manufacturerId, categoryId, description, imageSource, price);
     }
 }

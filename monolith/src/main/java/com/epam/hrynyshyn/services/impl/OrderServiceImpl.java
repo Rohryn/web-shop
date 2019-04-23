@@ -14,7 +14,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public void addOrder(Order order) {
-        orderRepository.addOrder(order);
+        orderRepository.save(order);
 
     }
 }

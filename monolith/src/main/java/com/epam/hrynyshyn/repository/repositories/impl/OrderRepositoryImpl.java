@@ -7,7 +7,6 @@ import com.epam.hrynyshyn.repository.TransactionOperation;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.AddOrderConstructor;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.AddOrderedProductConstructor;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
-import com.epam.hrynyshyn.repository.repositories.OrderRepository;
 import com.mysql.jdbc.Statement;
 import org.apache.log4j.Logger;
 
@@ -18,7 +17,7 @@ import java.sql.SQLException;
 import java.util.List;
 @Deprecated
 //@Repository
-public class OrderRepositoryImpl implements OrderRepository {
+public class OrderRepositoryImpl /*implements OrderRepository */{
     private static Logger logger = Logger.getLogger(ProductRepositoryImpl.class);
     private TransactionManager manager;
 
@@ -26,7 +25,7 @@ public class OrderRepositoryImpl implements OrderRepository {
         this.manager = manager;
     }
 
-    @Override
+//    @Override
     public void addOrder(Order order) {
         manager.executeTransaction((TransactionOperation<Void>) connection -> {
             OrderRepositoryImpl.this.addOrderInfo(connection, order);

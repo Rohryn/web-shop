@@ -3,8 +3,6 @@ package com.epam.hrynyshyn.controllers.registration;
 import com.epam.hrynyshyn.controllers.captcha.service.entity.Captcha;
 import com.epam.hrynyshyn.controllers.captcha.service.providers.CaptchaProvider;
 import com.epam.hrynyshyn.repository.TransactionManager;
-import com.epam.hrynyshyn.repository.repositories.impl.UserRepositoryImpl;
-import com.epam.hrynyshyn.services.impl.UserServiceImpl;
 import com.epam.hrynyshyn.services.UserService;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import org.junit.Before;
@@ -71,7 +69,7 @@ public class RegistrationServletTest {
 
     private static void setUpUsersService() {
         TransactionManager transactionManager = new TransactionManager(getDataSource());
-        service = new UserServiceImpl(new UserRepositoryImpl(transactionManager));
+//        service = new UserServiceImpl(new UserRepositoryImpl(transactionManager));
     }
 
     private static DataSource getDataSource() {

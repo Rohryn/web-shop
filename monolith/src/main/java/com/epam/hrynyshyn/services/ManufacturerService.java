@@ -7,4 +7,6 @@ import java.util.List;
 public interface ManufacturerService {
 
     List<Manufacturer> getAllManufacturers();
+
+    List<Manufacturer> getByNames(List<String> names);
 }

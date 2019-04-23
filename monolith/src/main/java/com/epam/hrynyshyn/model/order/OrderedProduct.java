@@ -6,7 +6,7 @@ public final class OrderedProduct {
     private int orderId;
     private int productId;
     private String name;
-    private String manufacturer;
+    private int manufacturerId;
     private String description;
     private int price;
     private int count;
@@ -14,17 +14,17 @@ public final class OrderedProduct {
     public OrderedProduct(Product product, int count) {
         productId = product.getId();
         name = product.getName();
-        manufacturer = product.getManufacturer().getName();
+        manufacturerId = product.getManufacturerId();
         description = product.getDescription();
         price = product.getPrice();
         this.count = count;
     }
 
-    public OrderedProduct(int orderId, int productId, String name, String manufacturer, String description, int price, int count) {
+    public OrderedProduct(int orderId, int productId, String name, int manufacturerId, String description, int price, int count) {
         this.orderId = orderId;
         this.productId = productId;
         this.name = name;
-        this.manufacturer = manufacturer;
+        this.manufacturerId = manufacturerId;
         this.description = description;
         this.price = price;
         this.count = count;
@@ -46,8 +46,8 @@ public final class OrderedProduct {
         return name;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public int getManufacturerId() {
+        return manufacturerId;
     }
 
     public String getDescription() {

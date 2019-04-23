@@ -1,15 +1,12 @@
 package com.epam.hrynyshyn.repository.repositories.impl;
 
-import com.epam.hrynyshyn.repository.querybuilder.constructors.ProductsCountConstructor;
-import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
 import com.epam.hrynyshyn.exceptions.TransactionFailureException;
+import com.epam.hrynyshyn.model.entity.Product;
 import com.epam.hrynyshyn.repository.TransactionManager;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.GetFullProductInfoConstructor;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.GetProductByIdConstructor;
-import com.epam.hrynyshyn.model.entity.Category;
-import com.epam.hrynyshyn.model.entity.Manufacturer;
-import com.epam.hrynyshyn.model.entity.Product;
-import com.epam.hrynyshyn.repository.repositories.ProductRepository;
+import com.epam.hrynyshyn.repository.querybuilder.constructors.ProductsCountConstructor;
+import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
@@ -20,15 +17,15 @@ import java.util.List;
 import java.util.Map;
 @Deprecated
 @Repository
-public class ProductRepositoryImpl implements ProductRepository {
+public class ProductRepositoryImpl {
     private TransactionManager manager;
 
     public ProductRepositoryImpl(TransactionManager manager) {
         this.manager = manager;
     }
 
-    @Override
-    public Product getProductById(int productId) {
+//    @Override
+    public Product findById(int productId) {
         QueryConstructor constructor = new GetProductByIdConstructor(productId);
         return manager.executeTransaction(connection -> {
             PreparedStatement statement = connection.prepareStatement(constructor.constructQuery());
@@ -42,7 +39,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         });
     }
 
-    @Override
+//    @Override
     public int getProductsCountBySelectParameters(Map<String, Object> parameters) throws TransactionFailureException {
 
         QueryConstructor constructor = new ProductsCountConstructor(parameters);
@@ -58,7 +55,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         });
     }
 
-    @Override
+//    @Override
     public List<Product> getProductsBySelectParameters(Map<String, Object> parameters) throws TransactionFailureException {
         QueryConstructor constructor = new GetFullProductInfoConstructor(parameters);
         return manager.executeTransaction(connection -> {
@@ -80,8 +77,8 @@ public class ProductRepositoryImpl implements ProductRepository {
         Product product = new Product();
         product.setId(resultSet.getInt(1));
         product.setName(resultSet.getString(2));
-        product.setCategory(new Category(resultSet.getInt(3), resultSet.getString(4)));
-        product.setManufacturer(new Manufacturer(resultSet.getInt(5), resultSet.getString(6)));
+//        product.setCategoryId(new Category(resultSet.getInt(3), resultSet.getString(4)));
+//        product.setManufacturerId(new Manufacturer(resultSet.getInt(5), resultSet.getString(6)));
         product.setPrice(resultSet.getInt(7));
         product.setDescription(resultSet.getString(8));
         product.setImageSource(resultSet.getString(9));

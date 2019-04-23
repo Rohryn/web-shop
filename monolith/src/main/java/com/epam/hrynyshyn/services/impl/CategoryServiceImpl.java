@@ -19,4 +19,9 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getAllCategories() {
         return repository.findAll();
     }
+
+    @Override
+    public List<Category> getByNames(List<String> names) {
+        return repository.findByNames(names);
+    }
 }

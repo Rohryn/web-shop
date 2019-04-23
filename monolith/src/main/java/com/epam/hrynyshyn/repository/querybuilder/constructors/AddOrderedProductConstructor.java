@@ -40,7 +40,7 @@ public class AddOrderedProductConstructor implements QueryConstructor {
     public void prepareStatement(PreparedStatement statement) throws SQLException {
         statement.setInt(1, orderedProduct.getOrderId());
         statement.setString(2, orderedProduct.getName());
-        statement.setString(3, orderedProduct.getManufacturer());
+        statement.setInt(3, orderedProduct.getManufacturerId());
         statement.setString(4, orderedProduct.getDescription());
         statement.setInt(5, orderedProduct.getPrice());
         statement.setInt(6, orderedProduct.getCount());
