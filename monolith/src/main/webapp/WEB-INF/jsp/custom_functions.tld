@@ -16,7 +16,7 @@
     </function>
     <function>
         <name>replaceAll</name>
-        <function-class>com.epam.com.epam.hrynyshyn.tags.CustomFunctions</function-class>
+        <function-class>com.epam.hrynyshyn.tags.CustomFunctions</function-class>
         <function-signature>java.lang.String replaceAll(java.lang.String,java.lang.String,java.lang.String)</function-signature>
     </function>
 </taglib>

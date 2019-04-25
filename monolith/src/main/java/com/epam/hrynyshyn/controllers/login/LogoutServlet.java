@@ -12,6 +12,7 @@ import static com.epam.hrynyshyn.constants.Constants.User.USER_NAME;
 /**
  * Simple logout logic.
  */
+@Deprecated
 @WebServlet("/logout.do")
 public class LogoutServlet extends HttpServlet {
     @Override

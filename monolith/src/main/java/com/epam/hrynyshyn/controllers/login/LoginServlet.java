@@ -28,6 +28,7 @@ import static com.epam.hrynyshyn.constants.Constants.Validation.AVATARS_EXTENSIO
 import static com.epam.hrynyshyn.constants.Constants.Validation.AVATARS_STORAGE_PATH;
 import static com.epam.hrynyshyn.constants.Constants.Validation.ERRORS;
 
+@Deprecated
 @WebServlet("/login.do")
 public class LoginServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(LoginServlet.class);

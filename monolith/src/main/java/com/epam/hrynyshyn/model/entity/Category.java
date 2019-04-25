@@ -1,9 +1,18 @@
 package com.epam.hrynyshyn.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by Roman_Hrynyshyn on 12-Dec-16.
  */
+@Entity
+@Table(name = "Categories")
 public class Category {
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
 

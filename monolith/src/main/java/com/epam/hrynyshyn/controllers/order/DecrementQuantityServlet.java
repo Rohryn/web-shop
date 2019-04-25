@@ -4,7 +4,7 @@ import com.epam.hrynyshyn.model.entity.Product;
 import com.epam.hrynyshyn.model.ShoppingCart;
 
 import javax.servlet.annotation.WebServlet;
-
+@Deprecated
 @WebServlet("/decrementQuantity.do")
 public class DecrementQuantityServlet extends ChangeCountAbstractServlet {
 

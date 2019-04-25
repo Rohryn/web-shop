@@ -1,13 +1,10 @@
 package com.epam.hrynyshyn.repository.repositories;
 
 import com.epam.hrynyshyn.model.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface UserRepository {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
-    void addUser(User user);
-
-    User getUser(String email);
-
-    int getUsersCount();
+    User findByEmail(String email);
 }

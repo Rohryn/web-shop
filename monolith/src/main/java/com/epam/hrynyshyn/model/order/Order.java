@@ -3,24 +3,36 @@ package com.epam.hrynyshyn.model.order;
 
 import com.epam.hrynyshyn.model.entity.User;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
+@Entity
+@Table(name = "Orders")
 public class Order {
-    private int orderId;
+    @Id
+    @GeneratedValue
+    private int id;
     private String status;
     private String statusDescription;
     private String shipmentAddress;
     private String paymentCard;
     private long creationTime;
+    @ManyToOne
     private User customer;
+    @OneToMany
     private List<OrderedProduct> products;
 
-    public int getOrderId() {
-        return orderId;
+    public int getId() {
+        return id;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getStatusDescription() {

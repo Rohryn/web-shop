@@ -12,6 +12,7 @@ import java.util.Map;
 import static com.epam.hrynyshyn.constants.Constants.ErrorMessages.PRODUCT_NOT_FOUND_BY_ID;
 
 public class ShoppingCart {
+    // TODO: 2019-04-17 mb refactor to use product id as key  
     private Map<Product, Integer> content;
 
     public ShoppingCart() {
@@ -25,6 +26,16 @@ public class ShoppingCart {
         } else {
             content.put(product, 1);
         }
+    }
+
+    public void incrementProductQuantity(int productId) {
+        Product product = getProductById(productId);
+        addProduct(product);
+    }
+
+    public void decrementProductQuantity(int productId) {
+        Product product = getProductById(productId);
+        removeOneProduct(product);
     }
 
     public void removeOneProduct(Product product) {
@@ -59,6 +70,7 @@ public class ShoppingCart {
         return products;
     }
 
+    // TODO: 2019-04-17 bigdecimal
     public int getSumForProduct(Product product) {
         int count = content.get(product);
         return product.getPrice() * count;
@@ -80,6 +92,7 @@ public class ShoppingCart {
         return content.keySet().size();
     }
 
+    // TODO: 2019-04-17 bigdecimal
     public int getTotalSum() {
         int sum = 0;
         for (Map.Entry<Product, Integer> entry : content.entrySet()) {

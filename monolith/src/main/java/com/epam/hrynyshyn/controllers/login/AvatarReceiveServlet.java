@@ -18,6 +18,7 @@ import static com.epam.hrynyshyn.constants.Constants.Validation.AVATARS_STORAGE_
 /**
  * Functionality for showing user's avatar in profile bar.
  */
+@Deprecated
 @WebServlet("/receiveAvatar")
 public class AvatarReceiveServlet extends HttpServlet {
     @Override

@@ -1,13 +1,12 @@
 package com.epam.hrynyshyn.repository.repositories.impl;
 
-import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
-import com.epam.hrynyshyn.repository.repositories.OrderRepository;
+import com.epam.hrynyshyn.model.order.Order;
+import com.epam.hrynyshyn.model.order.OrderedProduct;
 import com.epam.hrynyshyn.repository.TransactionManager;
 import com.epam.hrynyshyn.repository.TransactionOperation;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.AddOrderConstructor;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.AddOrderedProductConstructor;
-import com.epam.hrynyshyn.model.order.Order;
-import com.epam.hrynyshyn.model.order.OrderedProduct;
+import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
 import com.mysql.jdbc.Statement;
 import org.apache.log4j.Logger;
 
@@ -16,16 +15,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-public class OrderRepositoryImpl implements OrderRepository {
+@Deprecated
+//@Repository
+public class OrderRepositoryImpl /*implements OrderRepository */{
     private static Logger logger = Logger.getLogger(ProductRepositoryImpl.class);
     private TransactionManager manager;
 
-    public OrderRepositoryImpl(TransactionManager manager) {
-        this.manager = manager;
-    }
+//    public OrderRepositoryImpl(TransactionManager manager) {
+//        this.manager = manager;
+//    }
 
-    @Override
+//    @Override
     public void addOrder(Order order) {
         manager.executeTransaction((TransactionOperation<Void>) connection -> {
             OrderRepositoryImpl.this.addOrderInfo(connection, order);
@@ -46,7 +46,7 @@ public class OrderRepositoryImpl implements OrderRepository {
 
     private void updateOrder(Order order, ResultSet resultSet) throws SQLException {
         if (resultSet.next()) {
-            order.setOrderId(resultSet.getInt(1));
+            order.setId(resultSet.getInt(1));
         }
         updateOrderedProducts(order);
     }
@@ -64,7 +64,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     private void updateOrderedProducts(Order order) {
         List<OrderedProduct> orderedProducts = order.getProducts();
         for (OrderedProduct orderedProduct : orderedProducts) {
-            orderedProduct.setOrderId(order.getOrderId());
+            orderedProduct.setOrderId(order.getId());
         }
     }
 }

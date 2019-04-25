@@ -1,11 +1,13 @@
 package com.epam.hrynyshyn.services.impl;
 
-import com.epam.hrynyshyn.repository.repositories.ManufacturerRepository;
 import com.epam.hrynyshyn.model.entity.Manufacturer;
+import com.epam.hrynyshyn.repository.repositories.ManufacturerRepository;
 import com.epam.hrynyshyn.services.ManufacturerService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ManufacturerServiceImpl implements ManufacturerService {
     private ManufacturerRepository repository;
 
@@ -15,6 +17,11 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Override
     public List<Manufacturer> getAllManufacturers() {
-        return repository.getAll();
+        return repository.findAll();
+    }
+
+    @Override
+    public List<Manufacturer> getByNames(List<String> names) {
+        return repository.findByNameIn(names);
     }
 }

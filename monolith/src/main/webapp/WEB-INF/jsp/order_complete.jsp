@@ -29,7 +29,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-    <%@ taglib prefix="functions" uri="/WEB-INF/custom_functions.tld" %>
+    <%@ taglib prefix="functions" uri="/WEB-INF/jsp/custom_functions.tld" %>
     <%@ taglib prefix="ex" tagdir="/WEB-INF/tags" %>
     <%@ page isELIgnored="false" %>
     <!-- Google Fonts -->
