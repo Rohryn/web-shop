@@ -69,7 +69,7 @@ public class RegistrationServletTest {
 
     private static void setUpUsersService() {
         TransactionManager transactionManager = new TransactionManager(getDataSource());
-//        service = new UserServiceImpl(new UserRepositoryImpl(transactionManager));
+//        com.webshop.service.order.service = new UserServiceImpl(new UserRepositoryImpl(transactionManager));
     }
 
     private static DataSource getDataSource() {
