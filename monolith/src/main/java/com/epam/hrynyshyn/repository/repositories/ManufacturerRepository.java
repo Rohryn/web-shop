@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ManufacturerRepository extends JpaRepository<Manufacturer, Integer> {
 
-    List<Manufacturer> findByNames(List<String> names);
+    List<Manufacturer> findByNameIn(List<String> names);
 }

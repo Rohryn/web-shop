@@ -2,7 +2,17 @@ package com.epam.hrynyshyn.model.order;
 
 import com.epam.hrynyshyn.model.entity.Product;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "OrderedProducts")
 public final class OrderedProduct {
+    @Id
+    @GeneratedValue
+    private int id;
     private int orderId;
     private int productId;
     private String name;
@@ -60,5 +70,13 @@ public final class OrderedProduct {
 
     public int getCount() {
         return count;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

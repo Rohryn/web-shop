@@ -1,11 +1,19 @@
 package com.epam.hrynyshyn.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 /**
  * Created by Roman_Hrynyshyn on 12-Dec-16.
  */
+@Entity
+@Table(name = "Products")
 public class Product {
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
     private int manufacturerId;

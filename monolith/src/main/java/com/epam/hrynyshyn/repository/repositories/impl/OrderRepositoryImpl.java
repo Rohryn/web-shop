@@ -21,9 +21,9 @@ public class OrderRepositoryImpl /*implements OrderRepository */{
     private static Logger logger = Logger.getLogger(ProductRepositoryImpl.class);
     private TransactionManager manager;
 
-    public OrderRepositoryImpl(TransactionManager manager) {
-        this.manager = manager;
-    }
+//    public OrderRepositoryImpl(TransactionManager manager) {
+//        this.manager = manager;
+//    }
 
 //    @Override
     public void addOrder(Order order) {
@@ -46,7 +46,7 @@ public class OrderRepositoryImpl /*implements OrderRepository */{
 
     private void updateOrder(Order order, ResultSet resultSet) throws SQLException {
         if (resultSet.next()) {
-            order.setOrderId(resultSet.getInt(1));
+            order.setId(resultSet.getInt(1));
         }
         updateOrderedProducts(order);
     }
@@ -64,7 +64,7 @@ public class OrderRepositoryImpl /*implements OrderRepository */{
     private void updateOrderedProducts(Order order) {
         List<OrderedProduct> orderedProducts = order.getProducts();
         for (OrderedProduct orderedProduct : orderedProducts) {
-            orderedProduct.setOrderId(order.getOrderId());
+            orderedProduct.setOrderId(order.getId());
         }
     }
 }

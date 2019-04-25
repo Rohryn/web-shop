@@ -126,7 +126,7 @@ public class RegistrationServletTest {
     public void testRegistrationWithCorrectCaptcha() throws Exception {
         when(request.getParameter(CAPTCHA)).thenReturn("123");
         when(request.getParameter(EMAIL)).thenReturn(getUniqueEmail());
-        int usersBefore = service.getCount();
+        long usersBefore = service.getCount();
         servlet.doPost(request, response);
         assertTrue(service.getCount() - usersBefore == 1);
     }
@@ -142,7 +142,7 @@ public class RegistrationServletTest {
     @Test
     public void testRegistrationWithUniqueEmail() throws Exception {
         when(request.getParameter(EMAIL)).thenReturn(getUniqueEmail());
-        int usersBefore = service.getCount();
+        long usersBefore = service.getCount();
         servlet.doPost(request, response);
         assertTrue(service.getCount() - usersBefore == 1);
     }

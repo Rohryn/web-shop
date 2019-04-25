@@ -7,7 +7,6 @@ import com.epam.hrynyshyn.repository.querybuilder.constructors.GetFullProductInf
 import com.epam.hrynyshyn.repository.querybuilder.constructors.GetProductByIdConstructor;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.ProductsCountConstructor;
 import com.epam.hrynyshyn.repository.querybuilder.constructors.QueryConstructor;
-import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,13 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @Deprecated
-@Repository
+//@Repository
 public class ProductRepositoryImpl {
     private TransactionManager manager;
 
-    public ProductRepositoryImpl(TransactionManager manager) {
-        this.manager = manager;
-    }
+//    public ProductRepositoryImpl(TransactionManager manager) {
+//        this.manager = manager;
+//    }
 
 //    @Override
     public Product findById(int productId) {

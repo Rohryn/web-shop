@@ -22,6 +22,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<Category> getByNames(List<String> names) {
-        return repository.findByNames(names);
+        return repository.findByNameIn(names);
     }
 }

@@ -22,6 +22,6 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Override
     public List<Manufacturer> getByNames(List<String> names) {
-        return repository.findByNames(names);
+        return repository.findByNameIn(names);
     }
 }

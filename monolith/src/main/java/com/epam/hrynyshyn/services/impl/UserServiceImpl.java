@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int getCount() {
-        return repository.getCount();
+    public long getCount() {
+        return repository.count();
     }
 }

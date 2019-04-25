@@ -1,6 +1,15 @@
 package com.epam.hrynyshyn.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Users")
 public class User {
+    @Id
+    @GeneratedValue
     private int id;
     private String firstName;
     private String lastName;

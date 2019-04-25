@@ -12,9 +12,9 @@ import java.sql.PreparedStatement;
 public class OrderedProductRepositoryImpl /*implements OrderedProductRepository*/ {
     private TransactionManager manager;
 
-    public OrderedProductRepositoryImpl(TransactionManager manager) {
-        this.manager = manager;
-    }
+//    public OrderedProductRepositoryImpl(TransactionManager manager) {
+//        this.manager = manager;
+//    }
 
 //    @Override
     public void addProduct(OrderedProduct product) {

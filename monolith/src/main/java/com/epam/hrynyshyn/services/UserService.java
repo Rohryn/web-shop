@@ -15,5 +15,5 @@ public interface UserService {
 
     String getFullName(String email);
 
-    int getCount();
+    long getCount();
 }
